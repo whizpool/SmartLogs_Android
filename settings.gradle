@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SupportSystemDemo"
 include ':app'
-include ':SupportSystem-Android'
+include ':SmartLog'
