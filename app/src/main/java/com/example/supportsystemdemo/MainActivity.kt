@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
                 findViewById<ImageView>(R.id.imageView).apply {
                     setImageURI(it)
                 }
-
-
             }
         }
 
