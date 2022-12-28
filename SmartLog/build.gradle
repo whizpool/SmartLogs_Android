@@ -33,6 +33,21 @@ android {
     viewBinding {
         enabled = true
     }
+    
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.whizpool'
+            artifactId = 'SmartLogs_Android'
+            version = '1.0'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
 
 dependencies {
