@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SupportSystem</string>
+    <string name="show_details">Details</string>
+    <string name="send">Send Report</string>
+    <string name="bug_detail_hint">Write here about your bug detail…</string>
+    <string name="bug_summary_hint">Write you bug details here</string>
+    <string name="bug_zip_file_name">%1$s logFileData.zip</string>
+    <string name="final_log_name">finalLog.log</string>
+    <string name="additional_file_name">Device info.json</string>
+
+    <string name="email_subject">Bug Report Log</string>
+    <string name="chooser_title">Send email…</string>
+    <string name="dialog_title">Report a bug</string>
+</resources>
