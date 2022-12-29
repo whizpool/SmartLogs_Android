@@ -10,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import com.whizpool.supportsystem.LogBuilder
-import com.whizpool.supportsystem.utils.FileUtils
-import com.whizpool.supportsystem.utils.FileUtilsNew
-import com.whizpool.supportsystem.utils.getMyFont
+import com.whizpool.supportsystem.utils.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import java.io.File
@@ -55,13 +53,29 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.getDefaultNightMode()
 
         LogBuilder
+            .setDefaultTag("tag")
+            .setLogFileName("log file")
+            .setTitle("Bug report")
+            .setPassword("123456")
+            .setEmail("mail@mail.com")
+            .setSubjectToEmail("Email subject")
             .setDaysForLog(4)
             .setPassword("123456")
+            .setTitleFontSize(18f) // size in sp
+            .setSendButtonFontSize(18f) // size in sp
+            .setTextViewBackgroundColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
+            .setSendBtnImage(getMyDrawable(R.drawable.ic_launcher_background)!!, false)
             .setDialogTypeface(getMyFont(R.font.allan))
-//            .dialogBackgroundColor(getMyColor(R.color.purple_200))
-//            .dialogTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
-//            .dialogSendButtonBackgroundColor(getMyColor(R.color.white))
-            .build(this)
+            .setLineColor(getMyColor(R.color.purple_200))
+            .setKnobColor(getMyColor(R.color.purple_200))
+            .setMainBackgroundColor(getMyColor(R.color.purple_200))
+            .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
+            .setSendButtonBackgroundColor(getMyColor(R.color.white))
+            .build(this) // must call this first time
+
+//        LogBuilder.addAttachment(listOf(Uri))
+//
+//        LogBuilder.sendReport(this, listOf(Uri))
 
 //        SLog.initialization(this)
 
