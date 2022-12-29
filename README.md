@@ -15,14 +15,21 @@
 * Compile SDK 33
 * AGP (Android Gradle Plugin) 7.2.1 or greater
 * Theme Material Components
-* File Provider Path 
-    File provider path is required in case you have file provider in your manifest. A tools:replace is required in meta data.
+* File Provider Path is required in case you have file provider in your manifest. A tools:replace is required in meta data.
     
 ```
  <meta-data
-                tools:replace="android:resource"
+            --> tools:replace="android:resource" <--
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                android:resource="@xml/your_path_file" />
+```
+
+Path required in xml file
+
+```
+<files-path
+        name="files"
+        path="NewZip/" />
 ```
 
 ## Usage
@@ -60,4 +67,25 @@ For showing report dialog
 
 ```
 LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files. Can be null
+```
+
+## Installation
+Add jitpack url in Project level gradle or setting.gradle
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+     --> maven { url "https://jitpack.io" } <--
+       
+    }
+}
+```
+
+Add dependency in app level gradle
+
+```
+implementation 'com.github.whizpool:SmartLogs_Android:1.0'
 ```
