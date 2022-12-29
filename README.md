@@ -18,10 +18,17 @@
 * File Provider Path is required in case you have file provider in your manifest. A tools:replace is required in meta data.
     
 ```
- <meta-data
-            --> tools:replace="android:resource" <--
+<provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                 --> tools:replace="android:resource" <--
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/your_path_file" />
+        </provider>
+
 ```
 
 Path required in xml file
@@ -87,5 +94,5 @@ allprojects {
 Add dependency in app level gradle
 
 ```
-implementation 'com.github.whizpool:SmartLogs_Android:1.0'
+implementation 'com.github.whizpool:SmartLogs_Android:version'
 ```
