@@ -18,7 +18,7 @@ object LogBuilder {
         SLog.logFileName = name
     }
 
-    fun deleteOldLogs(forcefullyDelete: Boolean = false) {
+    fun deleteOldLogs(forcefullyDelete: Boolean = false) = apply {
         SLog.deleteLogs(forcefullyDelete)
     }
 
@@ -121,6 +121,7 @@ object LogBuilder {
         SLog.initialize(context)
     }
 
+    @JvmOverloads
     fun sendReport(context: Context, files: List<Uri>? = null) {
         SLog.additionalFiles = files
         SLog.showReportDialog(context)
