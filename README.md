@@ -94,5 +94,5 @@ allprojects {
 Add dependency in app level gradle
 
 ```
-implementation 'com.github.whizpool:SmartLogs_Android:version'
+implementation 'com.github.whizpool:SmartLogs_Android:1.0'
 ```
