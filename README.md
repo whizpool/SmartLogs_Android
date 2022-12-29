@@ -3,12 +3,12 @@
 ## Features
 
 1. Create new log file Everyday with current date name.
-2. Compress zip and Make password on it (optional).
-3. Delete old files depending on the no. of days provided to by developer
-4. Display a alert which take textual input from user about the issue / bug they are facing
-5. The theme of alert view can be customizable
-6. The send-to email can be provided by developer
-7. JSON file can be attached with following information: -> Device manufacturer -> Device model -> OS installed on device -> Currently running app version -> Free storage space available
+2. Compress all log files in zip, set password on it (optional).
+3. Delete old files depending on the no. of days provided by developer.
+4. Display an alert which take input from user about the issue / bug they are facing.
+5. The theme of alert view can be customizable.
+6. The send-to email can be provided by developer.
+7. JSON file can be attached with following information: -> Device manufacturer -> Device model -> OS installed on device -> Currently running app version -> Free storage space available.
 
 ## Requirements
 
@@ -73,7 +73,7 @@ Methods can also be use separately
 For showing report dialog
 
 ```
-LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files. Can be null
+LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files can be null.
 ```
 
 ## Installation
