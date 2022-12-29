@@ -41,7 +41,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.whizpool'
 //            artifactId = 'smartlogs-android'
-//            artifactId = 'smartLogs'
+            artifactId = 'smartLogs'
             version = '1.0'
 
             afterEvaluate {
