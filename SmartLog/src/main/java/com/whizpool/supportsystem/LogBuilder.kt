@@ -146,7 +146,7 @@ object LogBuilder {
         shouldSave: Boolean = true,
         exception: Exception? = null,
     ) {
-        SLog.log(tag, text, LogLevel.DEBUG, shouldSave, exception)
+        SLog.log(tag, text, LogLevel.DEBUG, shouldSave, null)
         SLog.log(tag, text, LogLevel.ERROR, shouldSave, exception)
     }
 

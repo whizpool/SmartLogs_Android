@@ -81,7 +81,12 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.save).setOnClickListener {
-            LogBuilder.summaryLog("Debug with tag", "msg")
+            LogBuilder.summaryLog(
+                tag = "Debug with tag",
+                text = "msg",
+                shouldSave = true,
+                exception = null)
+
         }
 
         findViewById<Button>(R.id.crash).setOnClickListener {
@@ -90,8 +95,10 @@ class MainActivity : AppCompatActivity() {
 
 //            startForResult.launch("image/*")
 //            multiple.launch("image/*")
-            LogBuilder.detailLogs("Crash",
+            LogBuilder.detailLogs(
+                tag = "Crash",
                 text = "App crashed....",
+                shouldSave = true,
                 exception = IllegalStateException("exception"))
         }
 
