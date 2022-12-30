@@ -75,6 +75,63 @@ For showing report dialog
 ```
 LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files can be null.
 ```
+Log files can be print using following methods
+
+* tag -> Tag of log.
+* text -> Additional message with log.
+* shouldSave -> Indicates should file save in auto generated file in storage.
+* exception -> Exception thrown in part of code.
+
+For summary logs
+
+```
+// debug log
+ LogBuilder.summaryLog( 
+                tag = "Debug with tag",
+                text = "msg",
+                shouldSave = true,
+                exception = someException)
+```
+
+For Detail logs
+
+```
+ LogBuilder.detailLogs(
+                tag = "Crash",
+                text = "App crashed....",
+                shouldSave = true,
+                exception = someException)
+```
+
+For Info logs
+
+```
+LogBuilder.logInfo(
+                tag = "Info tag",
+                text = "msg",
+                shouldSave = true,
+                exception = someException)
+```
+
+For Warning logs
+
+```
+LogBuilder.logWarn(
+                tag = "Warning tag",
+                text = "msg",
+                shouldSave = true,
+                exception = someException)
+```
+
+For Error logs
+
+```
+ LogBuilder.logError(
+                tag = "Error tag",
+                text = "msg",
+                shouldSave = true,
+                exception = someException)
+```
 
 ## Installation
 Add jitpack url in Project level gradle or setting.gradle
@@ -94,5 +151,5 @@ allprojects {
 Add dependency in app level gradle
 
 ```
-implementation 'com.github.whizpool:SmartLogs_Android:1.0'
+implementation 'com.github.whizpool:smartlogs-android:1.0'
 ```
