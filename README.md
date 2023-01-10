@@ -40,31 +40,51 @@ Path required in xml file
 ```
 
 ## Usage
+
+### Initialization and setup
+
 ```
  LogBuilder
             .setDefaultTag("tag")
             .setLogFileName("log file")
+            .setDaysForLog(4)             // number of last working days for collecting logs
+            .setPassword("123456")        // log file password
+            .hideReportDialogue(false)
+            .build(this)          // must call this first time
+
+```
+
+### Report dialog setup
+
+Report dialog can be show or hide. By default it is not hide.
+
+```
+ LogBuilder.hideReportDialogue(true) // true for hiding, false for showing
+```
+
+Report dialog can be customized
+
+```
+ LogBuilder
             .setTitle("Bug report")
-            .setPassword("123456")
             .setEmail("mail@mail.com")
             .setSubjectToEmail("Email subject")
-            .setDaysForLog(4)
-            .setPassword("123456")
             .setTitleFontSize(18f) // size in sp
             .setSendButtonFontSize(18f) // size in sp
             .setTextViewBackgroundColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
-            .setSendBtnImage(getMyDrawable(R.drawable.ic_launcher_background), false) // true for forcefully null, will ignore if drawable is set.
+            .setSendBtnImage(getMyDrawable(R.drawable.ic_launcher_background)!!, false)
             .setDialogTypeface(getMyFont(R.font.allan))
             .setLineColor(getMyColor(R.color.purple_200))
             .setKnobColor(getMyColor(R.color.purple_200))
             .setMainBackgroundColor(getMyColor(R.color.purple_200))
-            .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
+            .setDialogButtonTextColor(getMyColor(R.color.gray))
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
+            .dialogEditTextBackground(getMyDrawable(R.drawable.myDrawable))
             .build(this) // must call this first time
-
 ```
 
-Methods can also be use separately
+Methods can also be use separately, but make sure build method is already called.
+For example adding list of addition files uri.
 
 ```
  LogBuilder.addAttachment(listOf(Uri))
