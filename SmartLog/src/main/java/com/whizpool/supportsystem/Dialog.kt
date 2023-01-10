@@ -186,13 +186,13 @@ class Dialog(
 
     fun setTitleTextSize(sp: Float?) = apply {
         sp?.let {
-            binding.title.textSize = context.spToPx(it)
+            binding.title.textSize = it
         }
     }
 
     fun setButtonTextSize(sp: Float?) = apply {
         sp?.let {
-            binding.send.textSize = context.spToPx(it)
+            binding.send.textSize = it
         }
     }
 

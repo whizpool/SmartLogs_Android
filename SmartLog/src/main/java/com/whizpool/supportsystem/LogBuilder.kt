@@ -79,7 +79,7 @@ object LogBuilder {
 //        SLog.skipButtonBackgroundColor = skipButtonBackgroundColor
 //    }
 
-    fun dialogEditTextBackground(editTextBackground: Drawable) = apply {
+    fun dialogEditTextBackground(editTextBackground: Drawable?) = apply {
         SLog.editTextBackground = editTextBackground
     }
 
@@ -93,6 +93,10 @@ object LogBuilder {
 
     fun setKnobColor(@ColorInt color: Int) = apply {
         SLog.dialogHandleColor = color
+    }
+
+    fun hideReportDialogue(shouldHide: Boolean) = apply {
+        SLog.hideReportDialog = shouldHide
     }
 
 //    @JvmOverloads
@@ -124,7 +128,7 @@ object LogBuilder {
     @JvmOverloads
     fun sendReport(context: Context, files: List<Uri>? = null) {
         SLog.additionalFiles = files
-        SLog.showReportDialog(context)
+        SLog.sendReport(context)
     }
 
 

@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        AppCompatDelegate.getDefaultNightMode()
 
         LogBuilder
             .setDefaultTag("tag")
@@ -68,9 +67,12 @@ class MainActivity : AppCompatActivity() {
             .setDialogTypeface(getMyFont(R.font.allan))
             .setLineColor(getMyColor(R.color.purple_200))
             .setKnobColor(getMyColor(R.color.purple_200))
-            .setMainBackgroundColor(getMyColor(R.color.purple_200))
+//            .setMainBackgroundColor(getMyColor(R.color.purple_200))
             .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
+
+            .hideReportDialogue(false)
+//            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
             .build(this) // must call this first time
 
 //        LogBuilder.addAttachment(listOf(Uri))

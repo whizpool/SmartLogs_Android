@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="SmartLog/src/main/res/layout/send_dialog.xml" value="0.23385416666666667" />
         <entry key="SupportSystem-Android/src/main/res/drawable/drag_handle_bg.xml" value="0.153" />
         <entry key="SupportSystem-Android/src/main/res/drawable/edittext_background.xml" value="0.1325" />
         <entry key="SupportSystem-Android/src/main/res/drawable/main_rounded.xml" value="0.1325" />

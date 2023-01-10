@@ -52,6 +52,7 @@ object SLog : LifecycleEventObserver {
     var separatorColor: Int? = null
     var textSize: Float? = null
     var buttonTextSize: Float? = null
+    var hideReportDialog: Boolean = false
 
     var additionalFiles: List<Uri>? = null
 
@@ -309,7 +310,15 @@ object SLog : LifecycleEventObserver {
 //    }
 
 
-    internal fun showReportDialog(context: Context) {
+    internal fun sendReport(context: Context) {
+
+        if (hideReportDialog) {
+            ioScope.launch {
+                sendLog(context)
+            }
+            return
+        }
+
 
         val reportDialog = Dialog(context)
 
