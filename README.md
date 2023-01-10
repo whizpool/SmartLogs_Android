@@ -54,6 +54,13 @@ Path required in xml file
 
 ```
 
+
+Old log files can also be deleted
+
+```
+LogBuilder.deleteOldLogs()
+```
+
 ### Report dialog setup
 
 Report dialog can be show or hide. By default it is not hide.
@@ -61,6 +68,7 @@ Report dialog can be show or hide. By default it is not hide.
 ```
  LogBuilder.hideReportDialogue(true) // true for hiding, false for showing
 ```
+
 
 Report dialog can be customized
 
@@ -83,6 +91,7 @@ Report dialog can be customized
             .build(this) // must call this first time
 ```
 
+
 Methods can also be use separately, but make sure build method is already called.
 For example adding list of addition files uri.
 
@@ -90,11 +99,14 @@ For example adding list of addition files uri.
  LogBuilder.addAttachment(listOf(Uri))
 ```
 
-For showing report dialog
+
+For sending report to mail
 
 ```
 LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files can be null.
 ```
+
+
 Log files can be print using following methods
 
 * tag -> Tag of log.
