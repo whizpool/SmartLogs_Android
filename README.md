@@ -117,10 +117,10 @@ Log files can be print using following methods
 For summary logs
 
 ```
-// debug log
+
  LogBuilder.summaryLog( 
-                tag = "Debug with tag",
-                text = "msg",
+                tag = "Crash",
+                text = "App crashed....",
                 shouldSave = true,
                 exception = someException)
 ```
@@ -128,10 +128,11 @@ For summary logs
 For Detail logs
 
 ```
+// debug log
  LogBuilder.detailLogs(
-                tag = "Crash",
-                text = "App crashed....",
-                shouldSave = true,
+                tag = "Debug with tag",
+                text = "msg",
+                shouldSave = false,   // by default it will not write in log file
                 exception = someException)
 ```
 
