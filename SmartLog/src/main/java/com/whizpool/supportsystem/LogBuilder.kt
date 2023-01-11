@@ -18,8 +18,8 @@ object LogBuilder {
         SLog.logFileName = name
     }
 
-    fun deleteOldLogs(forcefullyDelete: Boolean = false) = apply {
-        SLog.deleteLogs(forcefullyDelete)
+    fun deleteOldLogs() = apply {
+        SLog.deleteLogs(true)
     }
 
     fun setDaysForLog(numberOfDays: Int) = apply {
@@ -139,7 +139,7 @@ object LogBuilder {
         shouldSave: Boolean = true,
         exception: Exception? = null,
     ) {
-        SLog.log(tag, text, logLevel = LogLevel.DEBUG, shouldSave, exception)
+        SLog.log(tag, text, LogLevel.ERROR, shouldSave, exception)
     }
 
 
@@ -147,11 +147,10 @@ object LogBuilder {
     fun detailLogs(
         tag: String = SLog.TAG,
         text: String = "",
-        shouldSave: Boolean = true,
+        shouldSave: Boolean = false,
         exception: Exception? = null,
     ) {
-        SLog.log(tag, text, LogLevel.DEBUG, shouldSave, null)
-        SLog.log(tag, text, LogLevel.ERROR, shouldSave, exception)
+        SLog.log(tag, text, LogLevel.DEBUG, shouldSave, exception)
     }
 
 

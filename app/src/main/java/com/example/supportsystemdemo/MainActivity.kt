@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import com.whizpool.supportsystem.LogBuilder
 import com.whizpool.supportsystem.utils.*
@@ -50,16 +49,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         LogBuilder
-            .setDefaultTag("tag")
-            .setLogFileName("log file")
             .setTitle("Bug report")
-            .setPassword("123456")
             .setEmail("mail@mail.com")
             .setSubjectToEmail("Email subject")
-            .setDaysForLog(4)
-            .setPassword("123456")
             .setTitleFontSize(18f) // size in sp
             .setSendButtonFontSize(18f) // size in sp
             .setTextViewBackgroundColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
@@ -67,13 +60,22 @@ class MainActivity : AppCompatActivity() {
             .setDialogTypeface(getMyFont(R.font.allan))
             .setLineColor(getMyColor(R.color.purple_200))
             .setKnobColor(getMyColor(R.color.purple_200))
-//            .setMainBackgroundColor(getMyColor(R.color.purple_200))
+            .setMainBackgroundColor(getMyColor(R.color.purple_200))
             .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
-
-            .hideReportDialogue(false)
-//            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
+            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
             .build(this) // must call this first time
+
+
+
+
+        LogBuilder
+            .setDefaultTag("tag")
+            .setLogFileName("log file")
+            .setDaysForLog(4)             // number of last working days for collecting logs
+            .setPassword("123456")        // log file password
+            .hideReportDialogue(false)
+            .build(this)          // must call this first time
 
 //        LogBuilder.addAttachment(listOf(Uri))
 //
