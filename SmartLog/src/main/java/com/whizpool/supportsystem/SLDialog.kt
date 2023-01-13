@@ -79,17 +79,10 @@ class SLDialog(
 
                 dialog.dismiss()
                 alertDialogCallbacks?.sendButtonClick(reason.text.toString())
-//                Toast.makeText(context, "Dismissed..!!", Toast.LENGTH_SHORT).show()
             }
 
-            showDetails.setOnClickListener {
-//                detailsLayout.isVisible = !detailsLayout.isVisible
-//            alertDialogCallbacks.skipButtonClick()
-//            dialog.dismiss()
-                //sendLog(context, SendType.WITHOUT_MESSAGE)
-
-
-            }
+//            showDetails.setOnClickListener {
+//            }
         }
 
         dialog.show()

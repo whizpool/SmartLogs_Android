@@ -74,8 +74,6 @@ fun File.makeZipFile(
             isEncryptFiles = true
             encryptionMethod = EncryptionMethod.ZIP_STANDARD
         }
-
-//        val filesToAdd = Arrays.asList(logFile, jsonFile)
         val filesToAdd = this.listFiles()?.toMutableList()
         ZipFile(pathWhereSave, pass.toCharArray()).apply {
             addFiles(filesToAdd, zipParameters)
