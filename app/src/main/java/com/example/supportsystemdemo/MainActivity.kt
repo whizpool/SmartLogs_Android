@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.whizpool.supportsystem.LogBuilder
+import com.whizpool.supportsystem.SLog
 import com.whizpool.supportsystem.utils.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private val startForResult =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let {
-                val path = FileUtilsNew.getPath(this, it)
                 val file = File(uri.path) //create path from uri
 
                 val split = file.path.split(":") //split the path.
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        LogBuilder
+        SLog
             .setTitle("Bug report")
             .setEmail("mail@mail.com")
             .setSubjectToEmail("Email subject")
@@ -60,16 +59,16 @@ class MainActivity : AppCompatActivity() {
             .setDialogTypeface(getMyFont(R.font.allan))
             .setLineColor(getMyColor(R.color.purple_200))
             .setKnobColor(getMyColor(R.color.purple_200))
-            .setMainBackgroundColor(getMyColor(R.color.purple_200))
+//            .setMainBackgroundColor(getMyColor(R.color.purple_200))
             .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
-            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
+//            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
             .build(this) // must call this first time
 
 
 
 
-        LogBuilder
+        SLog
             .setDefaultTag("tag")
             .setLogFileName("log file")
             .setDaysForLog(4)             // number of last working days for collecting logs
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.save).setOnClickListener {
-            LogBuilder.summaryLog(
+            SLog.summaryLog(
                 tag = "Debug with tag",
                 text = "msg",
                 shouldSave = true,
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
 //            startForResult.launch("image/*")
 //            multiple.launch("image/*")
-            LogBuilder.detailLogs(
+            SLog.detailLogs(
                 tag = "Crash",
                 text = "App crashed....",
                 shouldSave = true,
@@ -110,11 +109,11 @@ class MainActivity : AppCompatActivity() {
             println("Caught $exception")
             Toast.makeText(this@MainActivity, "Caught $exception", Toast.LENGTH_SHORT).show()
 
-            exception.message?.let { LogBuilder.logError("Delete files Exception", text = it) }
+            exception.message?.let { SLog.logError("Delete files Exception", text = it) }
         }
         findViewById<Button>(R.id.delete).setOnClickListener {
             lifecycleScope.launch(handler) {
-                FileUtils.deleteFiles {
+                SLogFileUtils.deleteFiles {
 
                     (it as Button).text = "deleted"
                     Toast.makeText(this@MainActivity, "files deleted", Toast.LENGTH_SHORT).show()
@@ -124,7 +123,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.send).setOnClickListener {
 
-            LogBuilder.sendReport(this@MainActivity, uriList)
+            SLog.sendReport(this@MainActivity, uriList)
         }
 
 //        val d = Executors.newSingleThreadExecutor().asCoroutineDispatcher()

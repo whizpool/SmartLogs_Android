@@ -7,7 +7,7 @@ import java.io.*
 import java.nio.charset.Charset
 import java.util.*
 
-object FileUtils {
+object SLogFileUtils {
 
     private const val LOG_FILE_ROOT_DIR_NAME = "Logs"
     private const val ZIP_FILE_DIRECTORY = "NewZip"

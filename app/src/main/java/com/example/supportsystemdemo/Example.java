@@ -6,8 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.whizpool.supportsystem.utils.CoroutineCallback;
-import com.whizpool.supportsystem.utils.FileUtils;
-import com.whizpool.supportsystem.utils.FileUtilsNew;
+import com.whizpool.supportsystem.utils.SLogFileUtils;
 
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -32,7 +31,7 @@ public class Example extends AppCompatActivity {
                 CoroutineStart.DEFAULT,
                 (Function2<CoroutineScope, Continuation<? super Unit>, Unit>) (coroutineScope, continuation) -> {
                     // your code here
-                    FileUtils.INSTANCE.deleteFiles(true, () -> null, CoroutineCallback.Companion.call((aBoolean, error) -> {
+                    SLogFileUtils.INSTANCE.deleteFiles(true, () -> null, CoroutineCallback.Companion.call((aBoolean, error) -> {
 
                     }));
 

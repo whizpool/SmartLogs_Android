@@ -14,10 +14,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.internal.EdgeToEdgeUtils
 import com.whizpool.supportsystem.databinding.SendDialogBinding
 import com.whizpool.supportsystem.utils.getMyDrawable
-import com.whizpool.supportsystem.utils.spToPx
 
 
-class Dialog(
+class SLDialog(
     private val context: Context,
 ) {
 
@@ -29,13 +28,11 @@ class Dialog(
 
     private lateinit var dialog: BottomSheetDialog
     fun showAlert() {
-//        binding = SendDialogBinding.inflate(LayoutInflater.from(context))
 
         dialog = BottomSheetDialog(context).apply {
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
 
             setContentView(binding.root)
-//            setTitle(titleName)
 
             EdgeToEdgeUtils.applyEdgeToEdge(window!!, true)
 
@@ -47,13 +44,6 @@ class Dialog(
         }
 
 
-//        val dialogMain = dialog.findViewById<MaterialCardView>(R.id.dialog_main)
-//        val title = dialog.findViewById<TextView>(R.id.title)
-//        title.text = titleName
-//        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-//        val reason = dialog.findViewById<EditText>(R.id.reason)
-//        val send = dialog.findViewById<MaterialButton>(R.id.send)
-//        val showDetails = dialog.findViewById<MaterialButton>(R.id.showDetails)
         val width = (context.resources.displayMetrics.widthPixels * 0.90).toInt()
         val height = (context.resources.displayMetrics.heightPixels * 0.90).toInt()
 
@@ -62,19 +52,9 @@ class Dialog(
             setLayout(width, height)
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
-//        if (mainDialogBackground != null) {
-//            dialogMain.setBackgroundDrawable(mainDialogBackground)
-//        }
-
 
         with(binding) {
 
-//            dialogMain.layoutParams.apply {
-//                this.width = width
-//                this.height = height
-//            }.also {
-//                dialogMain.layoutParams = it
-//            }
 
             reason.requestFocus()
 
@@ -85,15 +65,21 @@ class Dialog(
 
             send.setOnClickListener {
 
-                if (reason.text?.isNotEmpty() == true) {
-                    dialog.dismiss()
+                val text = reason.text.toString()
 
-                    alertDialogCallbacks?.sendButtonClick(reason.text.toString())
-//                Toast.makeText(context, "Dismissed..!!", Toast.LENGTH_SHORT).show()
-                } else {
-                    reason.error = SLog.emptyAlertMessage
-//                    alertDialog(context)
+                if (text.isNullOrBlank()) {
+                    reason.error = SLogHelper.emptyAlertMessage
+                    return@setOnClickListener
                 }
+
+                if (text.length < 10) {
+                    reason.error = SLogHelper.minimumCharacterError
+                    return@setOnClickListener
+                }
+
+                dialog.dismiss()
+                alertDialogCallbacks?.sendButtonClick(reason.text.toString())
+//                Toast.makeText(context, "Dismissed..!!", Toast.LENGTH_SHORT).show()
             }
 
             showDetails.setOnClickListener {
@@ -114,16 +100,6 @@ class Dialog(
         fun sendButtonClick(message: String)
         fun skipButtonClick()
     }
-
-//    private fun alertDialog(context: Context) {
-//        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-//        builder.setTitle("Alert!")
-//        builder.setMessage(SLog.emptyAlertMessage)
-//        builder.setNegativeButton("Ok"
-//        ) { dialog, which -> dialog.dismiss() }
-//        val diag: AlertDialog = builder.create()
-//        diag.show()
-//    }
 
 
     fun setDialogBackgroundColor(@ColorInt backgroundColor: Int?) = apply {
@@ -159,14 +135,15 @@ class Dialog(
             with(binding) {
                 title.typeface = it
                 reason.typeface = it
-                reasonLayout.typeface = it
+//                reasonLayout.typeface = it
                 send.typeface = it
             }
         }
     }
 
     fun setInputDrawable(drawable: Drawable?) = apply {
-        binding.reasonLayout.background = drawable
+        binding.reason.background = drawable
+//        binding.reasonLayout.background = drawable
     }
 
     fun setSeparatorColor(@ColorInt color: Int?) = apply {

@@ -1,6 +1,6 @@
 package com.whizpool.supportsystem.enums
 
-enum class LogLevel {
+enum class SLogLevel {
     DEBUG,
     INFO,
     WARN,

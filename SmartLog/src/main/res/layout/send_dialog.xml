@@ -58,21 +58,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reasonLayout"
-                style="@style/TextInputEditTextOutlineStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/reasonLayout"-->
+<!--                style="@style/TextInputEditTextOutlineStyle"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/line">-->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/reason"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:padding="16dp"
                     android:gravity="start|top"
                     android:hint="@string/bug_summary_hint"
                     android:maxHeight="250dp"
@@ -80,7 +79,7 @@
                     android:textSize="17sp"
                     android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
         </com.google.android.material.card.MaterialCardView>
 
