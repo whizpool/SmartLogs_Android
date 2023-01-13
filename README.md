@@ -149,7 +149,7 @@ SLog.logInfo(
 For Warning logs
 
 ```
-LogBuilder.logWarn(
+SLog.logWarn(
                 tag = "Warning tag",
                 text = "msg",
                 shouldSave = true,
@@ -159,7 +159,7 @@ LogBuilder.logWarn(
 For Error logs
 
 ```
- LogBuilder.logError(
+ SLog.logError(
                 tag = "Error tag",
                 text = "msg",
                 shouldSave = true,
