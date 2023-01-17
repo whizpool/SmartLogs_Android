@@ -11,4 +11,6 @@
     <string name="email_subject" >Registro de informe de errores</string>
     <string name="chooser_title">Enviar correo electrónico…</string>
     <string name="dialog_title">Reportar un error</string>
+    <string name="minimum_characters_error">Se requieren al menos 10 caracteres para el informe de error</string>
+    <string name="detail_missing_error">Falta el detalle del error</string>
 </resources>

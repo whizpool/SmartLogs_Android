@@ -68,13 +68,14 @@ class SLDialog(
                 val text = reason.text.toString()
 
                 if (text.isNullOrBlank()) {
-                    reason.error = SLogHelper.emptyAlertMessage
+                    reason.error = context.getString(R.string.detail_missing_error)
                     return@setOnClickListener
                 }
 
                 if (text.length < 10) {
-                    reason.error = SLogHelper.minimumCharacterError
+                    reason.error = context.getString(R.string.minimum_characters_error)
                     return@setOnClickListener
+
                 }
 
                 dialog.dismiss()
@@ -100,7 +101,7 @@ class SLDialog(
     }
 
     fun setDialogTitle(title: String?) = apply {
-        binding.title.text = title
+        binding.title.text = title ?: context.getString(R.string.dialog_title)
     }
 
     fun setButtonTextColor(@ColorInt color: Int?) = apply {

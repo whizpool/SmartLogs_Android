@@ -11,4 +11,6 @@
     <string name="email_subject" >Registro delle segnalazioni di bug</string>
     <string name="chooser_title">Invia una email…</string>
     <string name="dialog_title">Segnalare un bug</string>
+    <string name="minimum_characters_error">Almeno 10 caratteri richiesti per la segnalazione di bug</string>
+    <string name="detail_missing_error">Mancano i dettagli del bug</string>
 </resources>

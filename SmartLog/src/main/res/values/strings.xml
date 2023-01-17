@@ -11,4 +11,6 @@
     <string name="email_subject" >Bug Report Log</string>
     <string name="chooser_title">Send email…</string>
     <string name="dialog_title">Report a bug</string>
+    <string name="minimum_characters_error">Atleast 10 characters required for bug report</string>
+    <string name="detail_missing_error">Bug detail is missing</string>
 </resources>

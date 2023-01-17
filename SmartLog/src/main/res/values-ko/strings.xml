@@ -11,4 +11,6 @@
     <string name="email_subject" >버그 신고 로그</string>
     <string name="chooser_title">이메일을 보내…</string>
     <string name="dialog_title">버그 신고</string>
+    <string name="minimum_characters_error">버그 신고에 필요한 최소 10자</string>
+    <string name="detail_missing_error">버그 세부정보가 누락됨</string>
 </resources>

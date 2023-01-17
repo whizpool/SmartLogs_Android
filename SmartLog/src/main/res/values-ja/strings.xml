@@ -11,4 +11,6 @@
     <string name="email_subject" >バグレポートログ</string>
     <string name="chooser_title">メールを送る…</string>
     <string name="dialog_title">バグを報告</string>
+    <string name="minimum_characters_error">バグレポートには 10 文字以上が必要です</string>
+    <string name="detail_missing_error">バグの詳細がありません</string>
 </resources>

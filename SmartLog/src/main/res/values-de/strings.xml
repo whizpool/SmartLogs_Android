@@ -11,4 +11,6 @@
     <string name="email_subject" >Fehlerberichtsprotokoll</string>
     <string name="chooser_title">E-Mail senden…</string>
     <string name="dialog_title">Melde einen technischen Fehler</string>
+    <string name="minimum_characters_error">Mindestens 10 Zeichen für den Fehlerbericht erforderlich</string>
+    <string name="detail_missing_error">Fehlerdetails fehlen</string>
 </resources>

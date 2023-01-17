@@ -11,4 +11,6 @@
     <string name="email_subject" >Registo de relatórios de erros</string>
     <string name="chooser_title">Enviar email…</string>
     <string name="dialog_title">Reportar um erro</string>
+    <string name="minimum_characters_error">Pelo menos 10 caracteres necessários para o relatório de bug</string>
+    <string name="detail_missing_error">Detalhe do bug está faltando</string>
 </resources>

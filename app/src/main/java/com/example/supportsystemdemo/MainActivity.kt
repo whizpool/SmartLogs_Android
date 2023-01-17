@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         SLog
-            .setTitle("Bug report")
+//            .setTitle("Bug report")
             .setEmail("mail@mail.com")
             .setSubjectToEmail("Email subject")
             .setTitleFontSize(18f) // size in sp

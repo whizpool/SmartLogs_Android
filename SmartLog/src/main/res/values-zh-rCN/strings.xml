@@ -11,4 +11,6 @@
     <string name="email_subject" >错误报告日志</string>
     <string name="chooser_title">发送电子邮件…</string>
     <string name="dialog_title">报告错误</string>
+    <string name="minimum_characters_error">错误报告至少需要 10 个字符</string>
+    <string name="detail_missing_error">缺少错误详细信息</string>
 </resources>

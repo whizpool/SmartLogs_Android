@@ -9,6 +9,8 @@
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
     <string name="email_subject" >Foutmeldingslogboek</string>
-    <string name="chooser_title">E-mail verzenden…</string>
+    <string name="chooser_title">E-mail verzenden...</string>
     <string name="dialog_title">Meld een fout</string>
+    <string name="minimum_characters_error">Minstens 10 tekens vereist voor bugrapport</string>
+    <string name="detail_missing_error">Bugdetail ontbreekt</string>
 </resources>

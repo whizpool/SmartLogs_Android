@@ -59,8 +59,6 @@ object SLogHelper : LifecycleEventObserver {
     val ioScope = CoroutineScope(Dispatchers.IO)
 
     private var defaultLogLevel: SLogLevel = SLogLevel.DEBUG
-    var emptyAlertMessage: String = "Bug detail is missing"
-    var minimumCharacterError: String = "Atleast 10 characters required for bug report"
 
     private lateinit var versionName: String
     private var versionCode: Long = 0L

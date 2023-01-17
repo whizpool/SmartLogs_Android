@@ -11,4 +11,6 @@
     <string name="email_subject" >Journal de rapport de bogue</string>
     <string name="chooser_title">Envoyer un e-mail…</string>
     <string name="dialog_title">Signaler un bug</string>
+    <string name="minimum_characters_error">Au moins 10 caractères requis pour le rapport de bogue</string>
+    <string name="detail_missing_error">Le détail du bogue est manquant</string>
 </resources>
