@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">SupportSystem</string>
+    <string name="show_details">细节</string>
+    <string name="send">发送报告</string>
+    <string name="bug_detail_hint">在这里写下你的错误细节......</string>
+    <string name="bug_summary_hint">在这里写下你的错误细节</string>
+    <string name="bug_zip_file_name" translatable="false">%1$s logFileData.zip</string>
+    <string name="final_log_name" translatable="false">finalLog.log</string>
+    <string name="additional_file_name" translatable="false">Device info.json</string>
+
+    <string name="email_subject" >错误报告日志</string>
+    <string name="chooser_title">发送电子邮件…</string>
+    <string name="dialog_title">报告错误</string>
+</resources>

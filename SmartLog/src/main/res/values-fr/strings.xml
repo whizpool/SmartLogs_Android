@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">SupportSystem</string>
+    <string name="show_details">Des détails</string>
+    <string name="send">Envoyer un rapport</string>
+    <string name="bug_detail_hint">Écrivez ici le détail de votre bogue…</string>
+    <string name="bug_summary_hint">Écrivez vos détails de bogue ici</string>
+    <string name="bug_zip_file_name" translatable="false">%1$s logFileData.zip</string>
+    <string name="final_log_name" translatable="false">finalLog.log</string>
+    <string name="additional_file_name" translatable="false">Device info.json</string>
+
+    <string name="email_subject" >Journal de rapport de bogue</string>
+    <string name="chooser_title">Envoyer un e-mail…</string>
+    <string name="dialog_title">Signaler un bug</string>
+</resources>
