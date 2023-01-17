@@ -44,7 +44,7 @@ Path required in xml file
 ### Initialization and setup
 
 ```
- LogBuilder
+ SLog
             .setDefaultTag("tag")
             .setLogFileName("log file")
             .setDaysForLog(4)             // number of last working days for collecting logs
@@ -58,7 +58,7 @@ Path required in xml file
 Old log files can also be deleted
 
 ```
-LogBuilder.deleteOldLogs()
+SLog.deleteOldLogs()
 ```
 
 ### Report dialog setup
@@ -66,14 +66,14 @@ LogBuilder.deleteOldLogs()
 Report dialog can be show or hide. By default it is not hide.
 
 ```
- LogBuilder.hideReportDialogue(true) // true for hiding, false for showing
+ SLog.hideReportDialogue(true) // true for hiding, false for showing
 ```
 
 
 Report dialog can be customized
 
 ```
- LogBuilder
+ SLog
             .setTitle("Bug report")
             .setEmail("mail@mail.com")
             .setSubjectToEmail("Email subject")
@@ -96,14 +96,14 @@ Methods can also be use separately, but make sure build method is already called
 For example adding list of addition files uri.
 
 ```
- LogBuilder.addAttachment(listOf(Uri))
+ SLog.addAttachment(listOf(Uri))
 ```
 
 
 For sending report to mail
 
 ```
-LogBuilder.sendReport(this, listOf(Uri)) // Second parameter for additional files can be null.
+SLog.sendReport(this, listOf(Uri)) // Second parameter for additional files can be null.
 ```
 
 
@@ -118,7 +118,7 @@ For summary logs
 
 ```
 
- LogBuilder.summaryLog( 
+ SLog.summaryLog( 
                 tag = "Crash",
                 text = "App crashed....",
                 shouldSave = true,
@@ -129,7 +129,7 @@ For Detail logs
 
 ```
 // debug log
- LogBuilder.detailLogs(
+ SLog.detailLogs(
                 tag = "Debug with tag",
                 text = "msg",
                 shouldSave = false,   // by default it will not write in log file
@@ -139,7 +139,7 @@ For Detail logs
 For Info logs
 
 ```
-LogBuilder.logInfo(
+SLog.logInfo(
                 tag = "Info tag",
                 text = "msg",
                 shouldSave = true,
@@ -149,7 +149,7 @@ LogBuilder.logInfo(
 For Warning logs
 
 ```
-LogBuilder.logWarn(
+SLog.logWarn(
                 tag = "Warning tag",
                 text = "msg",
                 shouldSave = true,
@@ -159,7 +159,7 @@ LogBuilder.logWarn(
 For Error logs
 
 ```
- LogBuilder.logError(
+ SLog.logError(
                 tag = "Error tag",
                 text = "msg",
                 shouldSave = true,
