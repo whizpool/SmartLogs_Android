@@ -9,6 +9,20 @@
 5. The theme of alert view can be customizable.
 6. The send-to email can be provided by developer.
 7. JSON file can be attached with following information: -> Device manufacturer -> Device model -> OS installed on device -> Currently running app version -> Free storage space available.
+8. Localization included
+
+    * Chinese (Traditional)
+    * Chinese (Simplified)
+    * Dutch
+    * English
+    * French
+    * German
+    * Italian
+    * Japanese
+    * Korean
+    * Portuguese
+    * Spanish
+    
 
 ## Requirements
 
