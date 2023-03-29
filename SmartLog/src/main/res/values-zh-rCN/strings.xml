@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >错误报告日志</string>
+    <string name="email_subject" >错误报告：%1$s</string>
     <string name="chooser_title">发送电子邮件…</string>
     <string name="dialog_title">报告错误</string>
     <string name="minimum_characters_error">错误报告至少需要 10 个字符</string>

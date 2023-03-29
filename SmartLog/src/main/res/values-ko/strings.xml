@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >버그 신고 로그</string>
+    <string name="email_subject" >버그 신고: %1$s</string>
     <string name="chooser_title">이메일을 보내…</string>
     <string name="dialog_title">버그 신고</string>
     <string name="minimum_characters_error">버그 신고에 필요한 최소 10자</string>

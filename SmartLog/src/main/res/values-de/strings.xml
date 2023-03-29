@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >Fehlerberichtsprotokoll</string>
+    <string name="email_subject" >Fehlerbericht: %1$s</string>
     <string name="chooser_title">E-Mail senden…</string>
     <string name="dialog_title">Melde einen technischen Fehler</string>
     <string name="minimum_characters_error">Mindestens 10 Zeichen für den Fehlerbericht erforderlich</string>

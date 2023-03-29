@@ -9,7 +9,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.whizpool.supportsystem.SLog
-import com.whizpool.supportsystem.utils.*
+import com.whizpool.supportsystem.utils.SLogFileUtils
+import com.whizpool.supportsystem.utils.getMyColor
+import com.whizpool.supportsystem.utils.getMyDrawable
+import com.whizpool.supportsystem.utils.getMyFont
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import java.io.File
@@ -50,8 +53,8 @@ class MainActivity : AppCompatActivity() {
 
         SLog
 //            .setTitle("Bug report")
-            .setEmail("mail@mail.com")
-            .setSubjectToEmail("Email subject")
+            .setEmail("shahzeb.mushtaq@whizpool.com")
+//            .setSubjectToEmail("Email subject")
             .setTitleFontSize(18f) // size in sp
             .setSendButtonFontSize(18f) // size in sp
             .setTextViewBackgroundColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
@@ -64,8 +67,6 @@ class MainActivity : AppCompatActivity() {
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
 //            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))
             .build(this) // must call this first time
-
-
 
 
         SLog

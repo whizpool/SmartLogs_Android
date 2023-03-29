@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >Foutmeldingslogboek</string>
+    <string name="email_subject" >Bugrapport: %1$s</string>
     <string name="chooser_title">E-mail verzenden...</string>
     <string name="dialog_title">Meld een fout</string>
     <string name="minimum_characters_error">Minstens 10 tekens vereist voor bugrapport</string>

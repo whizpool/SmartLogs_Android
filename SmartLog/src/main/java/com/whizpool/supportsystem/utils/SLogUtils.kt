@@ -52,14 +52,15 @@ fun Context.getAvailableBytes(): String? {
 //    return bytesAvailable / (1024 * 1024)
 }
 
-fun JSONObject.getDeviceInfo(context: Context): JSONObject {
-    put("App_Version", "${context.getVersionName()} (${context.buildNumber()})")
-    put("OS_Version", "${Build.VERSION.RELEASE} (${Build.VERSION.SDK_INT})")
-    put("Device_Manufacturer", Build.MANUFACTURER)
-    put("Device_Model", Build.MODEL)
-    put("Space_Available", "${context.getAvailableBytes()}")
+fun getDeviceInfo(context: Context): JSONObject {
 
-    return this
+    return JSONObject().apply {
+        put("App_Version", "${context.getVersionName()} (${context.buildNumber()})")
+        put("OS_Version", "${Build.VERSION.RELEASE} (${Build.VERSION.SDK_INT})")
+        put("Device_Manufacturer", Build.MANUFACTURER)
+        put("Device_Model", Build.MODEL)
+        put("Space_Available", "${context.getAvailableBytes()}")
+    }
 }
 
 
@@ -101,7 +102,7 @@ fun Context.shareFileOnGmail(
     ShareCompat.IntentBuilder(this)
         .setType("vnd.android.cursor.dir/rmail")
         .addEmailTo(mail ?: "")
-        .setSubject(subject ?: getString(R.string.email_subject))
+        .setSubject(subject ?: getString(R.string.email_subject, getAppName()))
         .setText(message)
         .setChooserTitle(getString(R.string.chooser_title))
 //        .setStream(filesUri)

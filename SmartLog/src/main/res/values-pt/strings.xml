@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >Registo de relatórios de erros</string>
+    <string name="email_subject" >Relatório de bug: %1$s</string>
     <string name="chooser_title">Enviar email…</string>
     <string name="dialog_title">Reportar um erro</string>
     <string name="minimum_characters_error">Pelo menos 10 caracteres necessários para o relatório de bug</string>

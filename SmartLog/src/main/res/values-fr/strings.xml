@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >Journal de rapport de bogue</string>
+    <string name="email_subject" >Rapport de bogue : %1$s</string>
     <string name="chooser_title">Envoyer un e-mail…</string>
     <string name="dialog_title">Signaler un bug</string>
     <string name="minimum_characters_error">Au moins 10 caractères requis pour le rapport de bogue</string>

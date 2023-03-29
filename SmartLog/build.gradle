@@ -41,7 +41,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.whizpool'
             artifactId = 'smartlogs-android'
-            version = '1.3'
+            version = '1.6'
 
             afterEvaluate {
                 from components.release

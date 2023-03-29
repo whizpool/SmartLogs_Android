@@ -29,14 +29,14 @@ object SLogFileUtils {
 
 
     fun File.makeChildDirectory(
-        childDirectoryName: String ,
-        makeNew: Boolean = true,
+        childDirectoryName: String,
+        makeNewDirectory: Boolean = true,
     ) =
         File(this, childDirectoryName).apply {
             if (this.exists()) {
                 deleteRecursively()
             }
-            if (makeNew)
+            if (makeNewDirectory)
                 mkdirs()
         }
 
@@ -97,7 +97,6 @@ object SLogFileUtils {
     suspend fun readTextFromFiles(file: File): Deferred<String?> {
 
         val text = java.lang.StringBuilder()
-
 
         return coroutineScope {
 

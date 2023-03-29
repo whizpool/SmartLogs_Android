@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >Registro delle segnalazioni di bug</string>
+    <string name="email_subject" >Segnalazione bug: %1$s</string>
     <string name="chooser_title">Invia una email…</string>
     <string name="dialog_title">Segnalare un bug</string>
     <string name="minimum_characters_error">Almeno 10 caratteri richiesti per la segnalazione di bug</string>

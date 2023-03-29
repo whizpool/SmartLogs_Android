@@ -22,7 +22,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.joda.time.DateTime
-import org.json.JSONObject
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.Executors
@@ -310,53 +309,62 @@ object SLogHelper : LifecycleEventObserver {
 
             Log.d("LOG_FILE", "readLog: $text")
 
-            val zipDirectory = context.getDirForZip()
+            val zipDirectoryParent = context.getDirForZip()
 
-            val logFile =
-                zipDirectory.makeChildDirectory(logFileName
-                    ?: context.getString(R.string.final_log_name), false)
 
-            try {
-
-                logFile.createNewFile()
-
-                logFile.bufferedWriter(true).use {
-                    it.append(text)
-                    it.newLine()
-                }
-
-                val information = JSONObject().getDeviceInfo(context)
-
-                val jsonFile =
-                    zipDirectory.makeChildDirectory(context.getString(R.string.additional_file_name),
-                        false)
-
-                jsonFile.createNewFile()
-
-                jsonFile.bufferedWriter(true).use {
-                    it.append("$information")
-                    it.newLine()
-                }
-
-                val directoryZip =
-                    zipDirectory.makeChildDirectory(context.getString(R.string.bug_zip_file_name,
-                        context.getAppName()), false)
-
-                zipDirectory.makeZipFile(directoryZip, isProtected, passowrd)
-
-                val zipFileUri = context.getPathUri(directoryZip)
-
-                val list = buildList<Uri> {
-                    add(zipFileUri)
-                    additionalFiles?.let {
-                        addAll(it)
+            /**
+             * create new log files in subFolder and write all files text in one file
+             */
+            val subDirectory = zipDirectoryParent.makeChildDirectory(context.getAppName())
+            subDirectory.makeChildDirectory(logFileName
+                ?: context.getString(R.string.final_log_name), false)
+                .apply {
+                    createNewFile()
+                    bufferedWriter(true).use {
+                        it.append(text)
+                        it.newLine()
                     }
                 }
-                context.shareFileOnGmail(list, message, mail, subject)
 
-            } catch (e: IOException) {
-                e.printStackTrace()
+
+            /**
+             * create new file for writing device info
+             */
+            val deviceInfoFile =
+                zipDirectoryParent.makeChildDirectory(context.getString(R.string.additional_file_name),
+                    false)
+                    .apply {
+                        val information = getDeviceInfo(context)
+
+                        createNewFile()
+                        bufferedWriter(true).use {
+                            it.append("$information")
+                            it.newLine()
+                        }
+                    }
+
+            /**
+             * make file for saving zip
+             */
+
+            val directoryZip =
+                subDirectory.makeChildDirectory(context.getString(R.string.bug_zip_file_name,
+                    context.getAppName()), false)
+
+            subDirectory.makeZipFile(pathWhereSave = directoryZip, isProtected, passowrd)
+
+            val deviceInfoFileUri = context.getPathUri(deviceInfoFile)
+            val zipFileUri = context.getPathUri(directoryZip)
+
+            val list = buildList<Uri> {
+                add(deviceInfoFileUri)
+                add(zipFileUri)
+                additionalFiles?.let {
+                    addAll(it)
+                }
             }
+            context.shareFileOnGmail(list, message, mail, subject)
+
 
             text
         }

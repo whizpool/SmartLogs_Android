@@ -39,8 +39,6 @@ public class Example extends AppCompatActivity {
                 }
         );
 
-
-
     }
 
     public Example() {

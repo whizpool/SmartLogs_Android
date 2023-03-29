@@ -8,7 +8,7 @@
     <string name="final_log_name" translatable="false">finalLog.log</string>
     <string name="additional_file_name" translatable="false">Device info.json</string>
 
-    <string name="email_subject" >バグレポートログ</string>
+    <string name="email_subject" >バグ レポート: %1$s</string>
     <string name="chooser_title">メールを送る…</string>
     <string name="dialog_title">バグを報告</string>
     <string name="minimum_characters_error">バグレポートには 10 文字以上が必要です</string>
