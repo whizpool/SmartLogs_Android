@@ -3,7 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SmartLog" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SupportSystem-Android" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SupportSystemDemo" vcs="Git" />
   </component>
 </project>

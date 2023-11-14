@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name" translatable="false">SupportSystem</string>
     <string name="show_details">細節</string>
     <string name="send">發送報告</string>
     <string name="bug_detail_hint">在這裡寫下你的錯誤細節......</string>

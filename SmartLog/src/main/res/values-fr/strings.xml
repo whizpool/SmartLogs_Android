@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name" translatable="false">SupportSystem</string>
     <string name="show_details">Des détails</string>
     <string name="send">Envoyer un rapport</string>
     <string name="bug_detail_hint">Écrivez ici le détail de votre bogue…</string>
