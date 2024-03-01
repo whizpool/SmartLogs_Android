@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -41,7 +41,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.whizpool'
             artifactId = 'smartlogs-android'
-            version = '1.6'
+            version = '1.7'
 
             afterEvaluate {
                 from components.release
