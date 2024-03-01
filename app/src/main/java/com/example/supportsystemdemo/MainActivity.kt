@@ -58,11 +58,12 @@ class MainActivity : AppCompatActivity() {
             .setTitleFontSize(18f) // size in sp
             .setSendButtonFontSize(18f) // size in sp
             .setTextViewBackgroundColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
-            .setSendBtnImage(getMyDrawable(R.drawable.ic_launcher_background)!!, false)
+//            .setSendBtnImage(getMyDrawable(R.drawable.ic_launcher_background)!!, false)
             .setDialogTypeface(getMyFont(R.font.allan))
             .setLineColor(getMyColor(R.color.purple_200))
             .setKnobColor(getMyColor(R.color.purple_200))
 //            .setMainBackgroundColor(getMyColor(R.color.purple_200))
+            .setDialogButtonIconSize(50)
             .setDialogButtonTextColor(getMyColor(com.whizpool.supportsystem.R.color.gray))
             .setSendButtonBackgroundColor(getMyColor(R.color.white))
 //            .dialogEditTextBackground(getMyDrawable(R.drawable.ic_launcher_background))

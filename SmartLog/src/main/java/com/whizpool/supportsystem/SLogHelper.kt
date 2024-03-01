@@ -11,14 +11,29 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.whizpool.supportsystem.enums.SLogLevel
-import com.whizpool.supportsystem.utils.*
+import com.whizpool.supportsystem.utils.LOG_FILE_DATE_FORMAT
+import com.whizpool.supportsystem.utils.LOG_TIMESTAMP_FORMAT
+import com.whizpool.supportsystem.utils.SLogFileUtils
 import com.whizpool.supportsystem.utils.SLogFileUtils.bufferedWriter
 import com.whizpool.supportsystem.utils.SLogFileUtils.getDirForLogs
 import com.whizpool.supportsystem.utils.SLogFileUtils.getDirForZip
 import com.whizpool.supportsystem.utils.SLogFileUtils.getPathUri
 import com.whizpool.supportsystem.utils.SLogFileUtils.makeChildDirectory
 import com.whizpool.supportsystem.utils.SLogFileUtils.readTextFromFiles
-import kotlinx.coroutines.*
+import com.whizpool.supportsystem.utils.buildNumber
+import com.whizpool.supportsystem.utils.getAppName
+import com.whizpool.supportsystem.utils.getDeviceInfo
+import com.whizpool.supportsystem.utils.getFormattedDate
+import com.whizpool.supportsystem.utils.getVersionName
+import com.whizpool.supportsystem.utils.isOutOfSpaceError
+import com.whizpool.supportsystem.utils.makeZipFile
+import com.whizpool.supportsystem.utils.shareFileOnGmail
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.joda.time.DateTime
@@ -29,6 +44,7 @@ import kotlin.math.min
 
 
 object SLogHelper : LifecycleEventObserver {
+    var fileProviderSuffix: String = "provider"
     var logFileName: String? = null
     private var logFile: File? = null
     private var logTime: DateTime? = null
@@ -41,6 +57,7 @@ object SLogHelper : LifecycleEventObserver {
     var textColor: Int? = null
     var typeface: Typeface? = null
     var buttonTextColor: Int? = null
+    var buttonIconSize: Int? = null
     var titleName: String? = null
     var mainDialogBackgroundColor: Int? = null
     var buttonIcon: Pair<Drawable, Boolean>? = null
@@ -190,10 +207,12 @@ object SLogHelper : LifecycleEventObserver {
                                 // returned false then skip this log and break the loop.
                                 stayInLoop = SLogFileUtils.deleteFiles(true)
                             }
+
                             e.message?.contains("stream closed", true) == true -> {
                                 // If stream is closed, then do nothing, even if the log is missed. Just exit the loop.
                                 stayInLoop = false
                             }
+
                             else -> {
                                 // If exception was other than no space left, then we don't know why app crashed. We will let
                                 // the app crash, so it is logged in Crashlytics and we can investigate it further.
@@ -233,6 +252,7 @@ object SLogHelper : LifecycleEventObserver {
                     SLogLevel.DEBUG -> {
                         Log.d(tag, text.substring(i, end))
                     }
+
                     SLogLevel.INFO -> {
                         Log.i(tag, text.substring(i, end))
                     }
@@ -286,6 +306,7 @@ object SLogHelper : LifecycleEventObserver {
             .setDialogBackgroundColor(mainDialogBackgroundColor)
             .setTextColor(textColor)
             .setButtonTextColor(buttonTextColor)
+            .setButtonIconSize(buttonIconSize)
             .setInputDrawable(editTextBackground)
             .setSendButtonBackgroundColor(sendButtonBackgroundColor)
             .setFont(typeface)
@@ -316,8 +337,10 @@ object SLogHelper : LifecycleEventObserver {
              * create new log files in subFolder and write all files text in one file
              */
             val subDirectory = zipDirectoryParent.makeChildDirectory(context.getAppName())
-            subDirectory.makeChildDirectory(logFileName
-                ?: context.getString(R.string.final_log_name), false)
+            subDirectory.makeChildDirectory(
+                logFileName
+                    ?: context.getString(R.string.final_log_name), false
+            )
                 .apply {
                     createNewFile()
                     bufferedWriter(true).use {
@@ -331,8 +354,10 @@ object SLogHelper : LifecycleEventObserver {
              * create new file for writing device info
              */
             val deviceInfoFile =
-                zipDirectoryParent.makeChildDirectory(context.getString(R.string.additional_file_name),
-                    false)
+                zipDirectoryParent.makeChildDirectory(
+                    context.getString(R.string.additional_file_name),
+                    false
+                )
                     .apply {
                         val information = getDeviceInfo(context)
 
@@ -348,8 +373,12 @@ object SLogHelper : LifecycleEventObserver {
              */
 
             val directoryZip =
-                subDirectory.makeChildDirectory(context.getString(R.string.bug_zip_file_name,
-                    context.getAppName()), false)
+                subDirectory.makeChildDirectory(
+                    context.getString(
+                        R.string.bug_zip_file_name,
+                        context.getAppName()
+                    ), false
+                )
 
             subDirectory.makeZipFile(pathWhereSave = directoryZip, isProtected, passowrd)
 

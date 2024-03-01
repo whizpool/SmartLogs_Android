@@ -115,6 +115,13 @@ class SLDialog(
         }
     }
 
+
+    fun setButtonIconSize(iconSizeInPx: Int?) = apply {
+        iconSizeInPx?.let {
+            binding.send.iconSize = it
+        }
+    }
+
     fun setButtonIcon(icon: Drawable?, shouldNull: Boolean) = apply {
 
         binding.send.icon = when {

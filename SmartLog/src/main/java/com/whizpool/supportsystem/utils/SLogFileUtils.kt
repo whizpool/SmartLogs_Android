@@ -2,10 +2,21 @@ package com.whizpool.supportsystem.utils
 
 import android.content.Context
 import androidx.core.content.FileProvider
-import kotlinx.coroutines.*
-import java.io.*
+import com.whizpool.supportsystem.SLogHelper
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.withContext
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileOutputStream
+import java.io.FileWriter
+import java.io.IOException
+import java.io.OutputStreamWriter
 import java.nio.charset.Charset
-import java.util.*
+import java.util.Date
 
 object SLogFileUtils {
 
@@ -41,9 +52,11 @@ object SLogFileUtils {
         }
 
 
-    fun Context.getPathUri(file: File) = FileProvider.getUriForFile(this,
-        "$packageName.provider",
-        file)
+    fun Context.getPathUri(file: File) = FileProvider.getUriForFile(
+        this,
+        "$packageName.${SLogHelper.fileProviderSuffix}",
+        file
+    )
 
     suspend fun deleteFiles(
         forcefullyDelete: Boolean = false,
@@ -109,9 +122,11 @@ object SLogFileUtils {
 
                 for (element in listFiles) {
                     try {
-                        text.append("******************************* ${
-                            Date(element.lastModified()).getFormattedDate(LOG_FILE_DATE_FORMAT)
-                        } *******************************\n")
+                        text.append(
+                            "******************************* ${
+                                Date(element.lastModified()).getFormattedDate(LOG_FILE_DATE_FORMAT)
+                            } *******************************\n"
+                        )
                         text.append("\n")
                         element.bufferedReader().use {
                             text.append(it.readText())

@@ -59,6 +59,10 @@ object SLog {
         SLogHelper.buttonTextSize = size
     }
 
+    fun setFileProviderSuffix(suffix: String) {
+        SLogHelper.fileProviderSuffix = suffix
+    }
+
     fun setMainBackgroundColor(@ColorInt mainDialogBackgroundColor: Int) = apply {
         SLogHelper.mainDialogBackgroundColor = mainDialogBackgroundColor
     }
@@ -82,6 +86,10 @@ object SLog {
 
     fun setDialogButtonTextColor(@ColorInt color: Int) = apply {
         SLogHelper.buttonTextColor = color
+    }
+
+    fun setDialogButtonIconSize(size: Int) = apply {
+        SLogHelper.buttonIconSize = size
     }
 
     fun setLineColor(@ColorInt color: Int) = apply {
